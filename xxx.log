@@ -1,0 +1,27 @@
+/usr/bin/gcc -o obj/CETD.o -c -Wall -g --std=c99 ./src/CETD.c	
+./src/CETD.c: In function ‘CETD_tag_generation’:
+./src/CETD.c:95:3: warning: passing argument 4 of ‘write_txt_2array’ from incompatible pointer type [enabled by default]
+   write_txt_2array(x,Y_NUMBER,TAG_LENGTH,swap_data);
+   ^
+In file included from ./src/CETD.c:12:0:
+./src/../include/write_txt.h:4:6: note: expected ‘const unsigned char **’ but argument is of type ‘unsigned char **’
+ void write_txt_2array(FILE *dst, int number, int length, const uchar **array);
+      ^
+./src/CETD.c:122:25: error: expected expression before ‘,’ token
+     tag_gene(swap_data, ,nonce, tag, Y_NUMBER, TAG_LENGTH);
+                         ^
+./src/CETD.c:122:25: warning: passing argument 1 of ‘tag_gene’ from incompatible pointer type [enabled by default]
+In file included from ./src/../include/CETD.h:13:0,
+                 from ./src/CETD.c:10:
+./src/../include/tag.h:2:6: note: expected ‘const unsigned char **’ but argument is of type ‘unsigned char **’
+ void tag_gene(const uchar **data,const uchar *nonce, uchar *tag, int number, int arr_length);
+      ^
+./src/CETD.c:122:25: warning: passing argument 4 of ‘tag_gene’ makes integer from pointer without a cast [enabled by default]
+     tag_gene(swap_data, ,nonce, tag, Y_NUMBER, TAG_LENGTH);
+                         ^
+In file included from ./src/../include/CETD.h:13:0,
+                 from ./src/CETD.c:10:
+./src/../include/tag.h:2:6: note: expected ‘int’ but argument is of type ‘unsigned char *’
+ void tag_gene(const uchar **data,const uchar *nonce, uchar *tag, int number, int arr_length);
+      ^
+make: *** [obj/CETD.o] Error 1
