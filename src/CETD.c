@@ -23,8 +23,8 @@ void CETD_tag_generation(const uchar **data, uchar *nonce_input,  aes_context a_
 	{
 		for( j=0;j<TAG_LENGTH;j++)
 		{
-			uchar x=i-(i/Y_SINGLE)*Y_SINGLE;
-			CETD_data[i][j]=data[i/Y_SINGLE][Y_SINGLE*x+j];
+//			uchar x=i-(i/Y_SINGLE)*Y_SINGLE;
+			CETD_data[i][j]=data[i/Y_SINGLE][Y_SINGLE*(i%Y_SINGLE)+j];
 		}
 	}
 		
